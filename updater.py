@@ -7,6 +7,7 @@ path = './data/'
 
 urlConfirmed = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
 urlDeaths = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv'
+urlCountries = 'https://restcountries.eu/rest/v2/all'
 
 
 def confirmed_cases():
@@ -22,8 +23,26 @@ def deaths():
 	dfDeaths.to_csv(path+'deaths.csv')
 
 def population():
-	r = requests.get('https://www.worldpop.org/rest/data/pop/pic?iso3=bra')
-	print(json.dumps(r.json(), indent=2, sort_keys=True))
+	r = requests.get(urlCountries)
+	arrCountries = r.json()
+	names = []
+	populations = []
+	areas = []
+	dds = []
+	for country in arrCountries:
+		name = country["name"]
+		population = country["population"]
+		area = country["area"]
+		if name == None or population == None or area == None:
+			continue
+		names.append(name)
+		populations.append(population)
+		areas.append(area)
+		dds.append((population/area))
+	dictCountries = {"name": names, "population": population, "area": areas, "demographic_density": dds}
+	dfCountries = pd.DataFrame.from_dict(dictCountries)
+	dfCountries.to_csv(path+'countries.csv')
 
-
+confirmed_cases()
+deaths()
 population()
