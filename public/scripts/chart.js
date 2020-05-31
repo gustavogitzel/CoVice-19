@@ -61,13 +61,15 @@ am4core.ready(function () {
         }
 
         if (lastCountry == ev.target) {
+            lastCountry = null;
+            $("#nameCountry").text("No selected");
             chart.goHome();
         } else {
             $("#sidenavRight").sidenav("open");
+            lastCountry = ev.target;
+            $("#nameCountry").text(ev.target.dataItem.dataContext.name);
         }
-        lastCountry = ev.target;
-
-        $("#nameCountry").text(ev.target.dataItem.dataContext.name);
+        
     });
 
     // Zoom control
