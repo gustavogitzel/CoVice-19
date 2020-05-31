@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*{
+    font-family: 'Montserrat';
+}
 body {
     overflow-y: hidden;
     background-color: white;
@@ -63,5 +67,24 @@ input+.thumb.active .value {
 }
 
 .range-field{
-    margin: 0 !important;
+    margin: 0 0 !important;
+}
+
+.solutionCard{
+    margin: 1em 1em !important;
+    max-width: 95%;
+    color: #323232;
+    text-align: center;
+}
+
+.solutionImage{
+    width: 3em;
+}
+
+.solutionSituation{
+    text-align: center;
+}
+
+#situationImage{
+    width: 70%;
 }

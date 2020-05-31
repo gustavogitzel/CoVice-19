@@ -1,4 +1,3 @@
-
 $(document).ready(() =>{
     $("input,select").change(()=>{
         $.post("/submit", {

@@ -68,13 +68,20 @@ am4core.ready(function () {
 
         if (lastCountry == ev.target) {
             lastCountry = null;
+            $("#nameCountry").css('font-size', '14px');
             $("#nameCountry").text("No selected");
             chart.goHome();
             resetInfo()
         } else {
             $("#sidenavRight").sidenav("open");
             lastCountry = ev.target;
-            $("#nameCountry").text(ev.target.dataItem.dataContext.name);
+            let name = ev.target.dataItem.dataContext.name;
+            if(name.length > 22){
+                $("#nameCountry").css('font-size', '12px');
+            }else{
+                $("#nameCountry").css('font-size', '14px');
+            }
+            $("#nameCountry").text(name);
         }
 
         // get info from country

@@ -7,9 +7,10 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static',filename='/images/favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='/css/style.ico') }}" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <!-- Compiled and minified JavaScript -->
@@ -78,20 +79,36 @@
                 </select>
                 <label class="formItem">Season</label>
             </div>
-            <!--<div class="formItem">
-                <button class="btn waves-effect waves-light red darken-1" type="button" id="btnSubmit" name="action">Submit
-                    <i class="material-icons right">send</i>
-                  </button>
-            </div>-->
         </form>
     </ul>
     <ul id="sidenavRight" class="sidenav">
-        <li><a class="subheader">Description</a></li>
         <li>
-            <div class="textDescription">
-                <p id="idResult">Nothing to show yet!</p>
+            <div class="user-view solutionSituation">
+                <a><img id="situationImage" class="imageLogo" src="{{ url_for('static',filename='/images/logo.png') }}" /></a> <!-- imagem de acordo com a gravidade da situação-->
             </div>
         </li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="subheader">How to improve?</a></li>
+        <div class="solutionCard card-panel white row">
+            <div class="col s3">
+                <img class="solutionImage" src="{{ url_for('static',filename='/images/logo.png') }}">
+            </div>
+            <div class="col s9">
+                <span>Do that
+                </span>
+            </div>
+          </div>
+          <div class="solutionCard card-panel white row">
+            <div class="col s3">
+                <a><img class="solutionImage" src="{{ url_for('static',filename='/images/logo.png') }}"></a>
+            </div>
+            <div class="col s9">
+                <span>Dont do that
+                </span>
+            </div>
+          </div>
     </ul>
     <a id="buttonMenu" href="#" data-target="slide-out"
         class="btn-floating btn-large waves-effect waves-light red sidenav-trigger"><i
@@ -102,3 +119,5 @@
 <script src="{{ url_for('static',filename='/scripts/events.js') }}"></script>
 
 </html>
+
+
