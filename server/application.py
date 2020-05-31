@@ -2,16 +2,16 @@ from flask import Flask, redirect, url_for, render_template, flash, json, jsonif
 import pandas as pd
 from flask_cors import CORS, cross_origin
 
-app = Flask(__name__)
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
-app.config['CORS_HEADERS'] = 'Content-Type'
+application = Flask(__name__)
+cors = CORS(application, resources={r"/api/*": {"origins": "*"}})
+application.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.route("/")
+@application.route("/")
 def home():
     return "Teste"
 
 
-@app.route("/submit", methods=['POST'])
+@application.route("/submit", methods=['POST'])
 @cross_origin()
 def submit():
     density = request.form['density']
@@ -22,7 +22,7 @@ def submit():
     # chamar algoritmo pedro
     return "teste submit" # retorna json pro site 
     
-@app.route('/country/<name>', methods=['GET'])
+@application.route('/country/<name>', methods=['GET'])
 @cross_origin()
 def country(name):
 	df = pd.read_csv('final.csv')
@@ -31,5 +31,5 @@ def country(name):
 	return df.loc[name].to_json()
 
 if __name__ == "__main__":
-    app.run()
+    application.run()
 
