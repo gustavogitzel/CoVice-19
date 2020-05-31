@@ -73,9 +73,9 @@ def classify(dd, hb, pa, up):
                     maiorSubDif = subDif
                     
                     if df.iloc[i, ii + 2] > df_test.iloc[0, ii]:
-                        mudanca = -(ii + 1)
+                        mudanca = (ii + 1)
                     else:
-                        mudanca = ii + 1
+                        mudanca = -(ii + 1)
             
         if dife < menorDiferenca:
             menorDiferenca = dife
