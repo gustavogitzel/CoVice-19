@@ -61,6 +61,7 @@ am4core.ready(function () {
     worldPolygon.events.on("hit", function (ev) {
         ev.target.series.chart.zoomToMapObject(ev.target);
         ev.target.isActive = true;
+        let name = ev.target.dataItem.dataContext.name;
 
         if (lastCountry != null) {
             lastCountry.isActive = false;
@@ -75,7 +76,6 @@ am4core.ready(function () {
         } else {
             $("#sidenavRight").sidenav("open");
             lastCountry = ev.target;
-            let name = ev.target.dataItem.dataContext.name;
             if(name.length > 22){
                 $("#nameCountry").css('font-size', '11px');
             }else{
@@ -84,8 +84,17 @@ am4core.ready(function () {
             $("#nameCountry").text(name);
         }
 
-        // get info from country
-        // ajax requisao
+        $.ajax({
+            type: "GET",
+            url: "http://flask-env.eba-rvmf5vfe.sa-east-1.elasticbeanstalk.com/country/" + name,
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                alert(data);
+            },
+            error: function (data) {
+                alert("Error to get information! Try it later please!")
+            }
+        });
         
     });
 
