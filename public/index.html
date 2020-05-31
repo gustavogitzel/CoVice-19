@@ -21,7 +21,7 @@
     <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/dataviz.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-    <script src="scripts/chart.js"></script>
+    <script src="{{ url_for('static',filename='/scripts/chart.js') }}"></script>
     <title>CoVice-19</title>
 </head>
 
@@ -45,21 +45,32 @@
         <li><a class="subheader">Customize your selection!</a></li>
         <form action="">
             <div class="formItem">
-                <label>Density</label><input type="range" id="idDensity" min="0" max="100" />
+                <label>Density (*1000)</label>
+                <p class="range-field">
+                    <input type="range" id="idDensity" min="1" max="200" />
+                </p>
+                
             </div>
             <div class="formItem">
                 <label>Isolation</label>
-                <input type="range" id="idIsolation" min="0" max="100" />
+                <p class="range-field">
+                    <input type="range" id="idIsolation" min="0" max="100" />
+                </p>
             </div>
             <div class="formItem">
-                <label>Air Quality</label><input type="range" id="idAir" min="0" max="100" />
+                <label>Air Quality</label>
+                <p class="range-field">
+                    <input type="range" id="idAir" min="0" max="100" />
+                </p>
             </div>
             <div class="formItem">
-                <label>Avaible ICU beds</label><input type="range" id="idICU" min="0" max="100" />
+                <label>Avaible ICU beds</label>
+                <p class="range-field">
+                    <input type="range" id="idICU" min="0" max="100" />
+                </p>
             </div>
             <div class="input-field formItem">
                 <select>
-                    <option value="" disabled selected>Choose the season</option>
                     <option value="1">Spring</option>
                     <option value="2">Summer</option>
                     <option value="3">Winter</option>
@@ -83,5 +94,6 @@
     <div id="chartdiv" class="container"></div>
 </body>
 <script src="scripts/index.js"></script>
+<script src="scripts/events.js"></script>
 
 </html>
