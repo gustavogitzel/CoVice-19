@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="css/style.css" />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <!-- Compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
@@ -26,71 +23,65 @@
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
     <script src="scripts/chart.js"></script>
     <title>CoVice-19</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <ul id="slide-out" class="sidenav sidenav-fixed">
-      <li>
-        <div class="user-view">
-          <a href="#user"
-            ><img class="imageLogo" src="https://i.ibb.co/BfzBhNp/covice.png/"
-          /></a>
-        </div>
-      </li>
-      <li><div class="divider"></div></li>
-      <li><a class="subheader">Selected country</a></li>
-      <li>
-        <a href="#!"
-          ><i class="material-icons" style="color:#e53935;">place</i
-          ><span id="nameCountry">No selected</span></a
-        >
-      </li>
-      <li><div class="divider"></div></li>
-      <li><a class="subheader">Customize your selection!</a></li>
-      <form action="">
-        <div class="formItem">
-          <label>Density</label
-          ><input type="range" id="idDensity" min="0" max="100" />
-        </div>
-        <div class="formItem">
-          <label>Isolation</label>
-          <input type="range" id="idIsolation" min="0" max="100" />
-        </div>
-        <div class="formItem">
-          <label>Air Quality</label
-          ><input type="range" id="idAir" min="0" max="100" />
-        </div>
-        <div class="formItem">
-          <label>Avaible ICU beds</label
-          ><input type="range" id="idICU" min="0" max="100" />
-        </div>
-        <div class="input-field formItem">
-          <select>
-            <option value="" disabled selected>Choose the season</option>
-            <option value="1">Spring</option>
-            <option value="2">Summer</option>
-            <option value="3">Winter</option>
-            <option value="4">Fall</option>
-          </select>
-          <label class="formItem">Season</label>
-        </div>
-      </form>
+        <li>
+            <div class="user-view">
+                <a><img class="imageLogo" src="https://i.ibb.co/BfzBhNp/covice.png/" /></a>
+            </div>
+        </li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="subheader">Selected country</a></li>
+        <li>
+            <a><i class="material-icons" style="color:#e53935;">place</i><span id="nameCountry">No selected</span></a>
+        </li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="subheader">Customize your selection!</a></li>
+        <form action="">
+            <div class="formItem">
+                <label>Density</label><input type="range" id="idDensity" min="0" max="100" />
+            </div>
+            <div class="formItem">
+                <label>Isolation</label>
+                <input type="range" id="idIsolation" min="0" max="100" />
+            </div>
+            <div class="formItem">
+                <label>Air Quality</label><input type="range" id="idAir" min="0" max="100" />
+            </div>
+            <div class="formItem">
+                <label>Avaible ICU beds</label><input type="range" id="idICU" min="0" max="100" />
+            </div>
+            <div class="input-field formItem">
+                <select>
+                    <option value="" disabled selected>Choose the season</option>
+                    <option value="1">Spring</option>
+                    <option value="2">Summer</option>
+                    <option value="3">Winter</option>
+                    <option value="4">Fall</option>
+                </select>
+                <label class="formItem">Season</label>
+            </div>
+        </form>
     </ul>
     <ul id="sidenavRight" class="sidenav">
-      <li><a class="subheader">Description</a></li>
-      <li>
-        <div class="textDescription">
-          <p id="idResult">Nothing to show yet!</p>
-        </div>
-      </li>
+        <li><a class="subheader">Description</a></li>
+        <li>
+            <div class="textDescription">
+                <p id="idResult">Nothing to show yet!</p>
+            </div>
+        </li>
     </ul>
-    <a
-      id="buttonMenu"
-      href="#"
-      data-target="slide-out"
-      class="btn-floating btn-large waves-effect waves-light red sidenav-trigger"
-      ><i class="material-icons">menu</i></a
-    >
+    <a id="buttonMenu" href="#" data-target="slide-out"
+        class="btn-floating btn-large waves-effect waves-light red sidenav-trigger"><i
+            class="material-icons">menu</i></a>
     <div id="chartdiv" class="container"></div>
-  </body>
-  <script src="scripts/index.js"></script>
+</body>
+<script src="scripts/index.js"></script>
+
 </html>
