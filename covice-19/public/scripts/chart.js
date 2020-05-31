@@ -82,19 +82,21 @@ am4core.ready(function () {
                 $("#nameCountry").css('font-size', '14px');
             }
             $("#nameCountry").text(name);
+
+            $.ajax({
+                type: "GET",
+                url: "http://flask-env.eba-rvmf5vfe.sa-east-1.elasticbeanstalk.com/country/" + name,
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (data) {
+                    alert("Error to get information. Try it later please!")
+                }
+            });
         }
 
-        $.ajax({
-            type: "GET",
-            url: "http://flask-env.eba-rvmf5vfe.sa-east-1.elasticbeanstalk.com/country/" + name,
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
-                alert(data);
-            },
-            error: function (data) {
-                alert("Error to get information! Try it later please!")
-            }
-        });
+        
         
     });
 
