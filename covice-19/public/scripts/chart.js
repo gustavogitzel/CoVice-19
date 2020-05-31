@@ -5,6 +5,9 @@ resetInfo = () => {
     $("#idIsolation").val(50);
     $("#idAir").val(50);
     $("#idICU").val(50);
+    $("#idOld").val(100);
+    $("#idUrban").val(100);
+
 };
 
 am4core.ready(function () {
@@ -74,7 +77,7 @@ am4core.ready(function () {
             chart.goHome();
             resetInfo()
         } else {
-            $("#sidenavRight").sidenav("open");
+
             lastCountry = ev.target;
             if (name.length > 22) {
                 $("#nameCountry").css('font-size', '11px');
@@ -87,20 +90,30 @@ am4core.ready(function () {
                 contentType: "application/json; charset=utf-8"
             });
 
-            let link = "http://covice19sa.eba-53z3zu49.sa-east-1.elasticbeanstalk.com/country/";
+            let link = "http://covice19sab.eba-53z3zu49.sa-east-1.elasticbeanstalk.com/country/";
             let linkLocal = "http://localhost:5000/country/";
-            $.ajax({
-                type: "GET",
-                url: link + name,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data) {
-                    alert("aleluia")
-                },
-                error: function (data) {
-                    
-                }
-            });
+            try {
+                $.ajax({
+                    type: "GET",
+                    url: link + name,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data);
+                        $("#idDensity").val(Math.round(data['Demographic_Density']));
+                        $("#idICU").val(Math.round(data['Hospital beds (per 1,000 people)']));
+                        $("#idOld").val(Math.round(data['Population ages 65 and above (% of total population)']));
+                        $("#idUrban").val(Math.round(data['Urban population (% of total population)']));
+                    },
+                    error: function (data) {
+                        $("#modalError").modal('open');
+                        resetInfo()
+                    }
+                });
+            } catch (error) {
+                console.log("Error on server or it's Missing " + name + " data");
+            }
+
         }
     });
 

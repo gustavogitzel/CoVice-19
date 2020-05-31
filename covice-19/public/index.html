@@ -47,28 +47,27 @@
         <li><a class="subheader">Customize your selection!</a></li>
         <form action="">
             <div class="formItem">
-                <label>Population ages 65 and above</label>
+                <label>Population ages 65 and above (% of total population) </label>
                 <p class="range-field">
                     <input type="range" id="idOld" min="1" max="200" />
                 </p>
             </div>
             <div class="formItem">
-                <label>Urban Population</label>
+                <label>Urban population (% of total population)</label>
                 <p class="range-field">
                     <input type="range" id="idUrban" min="1" max="200" />
                 </p>
             </div>
             <div class="formItem">
-                <label>Density (*1000)</label>
+                <label>Demographic Density</label>
                 <p class="range-field">
                     <input type="range" id="idDensity" min="1" max="200" />
                 </p>
-
             </div>
             <div class="formItem">
                 <label>Isolation</label>
                 <p class="range-field">
-                    <input type="range" id="idIsolation" min="0" max="100" />
+                    <input type="range"  id="idIsolation" min="0" max="100" />
                 </p>
             </div>
             <div class="formItem">
@@ -78,7 +77,7 @@
                 </p>
             </div>
             <div class="formItem">
-                <label>Avaible ICU beds</label>
+                <label>Hospital beds (per 1,000 people)</label>
                 <p class="range-field">
                     <input type="range" id="idICU" min="0" max="100" />
                 </p>
@@ -134,6 +133,15 @@
         class="btn-floating btn-large waves-effect waves-light red sidenav-trigger"><i
             class="material-icons">menu</i></a>
     <div id="chartdiv" class="container"></div>
+    <div id="modalError" class="modal">
+        <div class="modal-content">
+            <h4>Error to get information</h4>
+            <p>This country has no data yet. Please, try it later!</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
 </body>
 
 <script src="scripts/index.js"></script>
