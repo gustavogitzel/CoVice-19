@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
@@ -21,7 +21,7 @@
     <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/dataviz.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-    <script src="scripts/chart.js"></script>
+    <script src="{{ url_for('static',filename='/scripts/chart.js') }}"></script>
     <title>CoVice-19</title>
 </head>
 
@@ -67,6 +67,11 @@
                 </select>
                 <label class="formItem">Season</label>
             </div>
+            <div class="formItem">
+                <button class="btn waves-effect waves-light red darken-1" type="button" name="action">Submit
+                    <i class="material-icons right">send</i>
+                  </button>
+            </div>
         </form>
     </ul>
     <ul id="sidenavRight" class="sidenav">
@@ -82,6 +87,6 @@
             class="material-icons">menu</i></a>
     <div id="chartdiv" class="container"></div>
 </body>
-<script src="scripts/index.js"></script>
+<script src="{{ url_for('static',filename='/scripts/index.js') }}"></script>
 
 </html>
