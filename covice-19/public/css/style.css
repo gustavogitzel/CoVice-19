@@ -88,3 +88,8 @@ input+.thumb.active .value {
 #situationImage{
     width: 70%;
 }
+
+#slide-out{
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+}::-webkit-scrollbar { width: 0 !important }

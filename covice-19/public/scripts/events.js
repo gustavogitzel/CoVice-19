@@ -1,12 +1,13 @@
 $(document).ready(() =>{
-    $("input,select").change(()=>{
-        $.post("/submit", {
+    var url = "/submit"; // miller poe a url
+    $("#buttonSubmit").click(()=>{
+        $.ajax("/submit", {
             density:$("#idDensity").val(),
             isolation:$("#idIsolation").val(),
             air:$("#idAir").val(),
             icu:$("#idICU").val()
         }).done(function (reply) {
-            $("#idResult").text(reply);
+            // atualiza pagina de acordo com oq veio
             $("#sidenavRight").sidenav("open");
         });
     });

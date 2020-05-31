@@ -77,7 +77,7 @@ am4core.ready(function () {
             lastCountry = ev.target;
             let name = ev.target.dataItem.dataContext.name;
             if(name.length > 22){
-                $("#nameCountry").css('font-size', '12px');
+                $("#nameCountry").css('font-size', '11px');
             }else{
                 $("#nameCountry").css('font-size', '14px');
             }
@@ -85,6 +85,7 @@ am4core.ready(function () {
         }
 
         // get info from country
+        // ajax requisao
         
     });
 
