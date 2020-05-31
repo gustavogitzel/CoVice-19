@@ -47,11 +47,23 @@
         <li><a class="subheader">Customize your selection!</a></li>
         <form action="">
             <div class="formItem">
+                <label>Population ages 65 and above</label>
+                <p class="range-field">
+                    <input type="range" id="idOld" min="1" max="200" />
+                </p>
+            </div>
+            <div class="formItem">
+                <label>Urban Population</label>
+                <p class="range-field">
+                    <input type="range" id="idUrban" min="1" max="200" />
+                </p>
+            </div>
+            <div class="formItem">
                 <label>Density (*1000)</label>
                 <p class="range-field">
                     <input type="range" id="idDensity" min="1" max="200" />
                 </p>
-                
+
             </div>
             <div class="formItem">
                 <label>Isolation</label>
@@ -80,12 +92,18 @@
                 </select>
                 <label class="formItem">Season</label>
             </div>
+            <div class="formItem">
+                <button class="btn waves-effect waves-light red darken-1" id="buttonSubmit">Save
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
         </form>
     </ul>
     <ul id="sidenavRight" class="sidenav">
         <li>
             <div class="user-view solutionSituation">
-                <a><img id="situationImage" class="imageLogo" src="images/logo.png" /></a> <!-- imagem de acordo com a gravidade da situação-->
+                <a><img id="situationImage" class="imageLogo" src="images/logo.png" /></a>
+                <!-- imagem de acordo com a gravidade da situação-->
             </div>
         </li>
         <li>
@@ -100,8 +118,8 @@
                 <span>Do that
                 </span>
             </div>
-          </div>
-          <div class="solutionCard card-panel white row">
+        </div>
+        <div class="solutionCard card-panel white row">
             <div class="col s3">
                 <a><img class="solutionImage" src="images/logo.png"></a>
 
@@ -110,7 +128,7 @@
                 <span>Dont do that
                 </span>
             </div>
-          </div>
+        </div>
     </ul>
     <a id="buttonMenu" href="#" data-target="slide-out"
         class="btn-floating btn-large waves-effect waves-light red sidenav-trigger"><i

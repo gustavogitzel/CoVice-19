@@ -88,3 +88,11 @@ input+.thumb.active .value {
 #situationImage{
     width: 70%;
 }
+
+#slide-out{
+    overflow:   scroll;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
