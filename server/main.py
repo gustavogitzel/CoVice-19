@@ -1,8 +1,14 @@
 from flask import Flask, redirect, url_for, render_template, flash, json, jsonify, request
 import pandas as pd
+from flask_cros import CORS
 
 app = Flask(__name__)
-
+CORS(app)
+cors = CORS(app, resources={
+    r"/*":{
+        "origins":"*"
+    }
+})
 @app.route("/")
 def home():
     return "Teste"
