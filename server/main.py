@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return "Teste"
 
 @app.route("/submit", methods=['POST'])
 def submit():
@@ -14,7 +14,7 @@ def submit():
     isolation = request.form['isolation']
 
     # chamar algoritmo pedro
-    return "oii"
+    return "teste submit" # retorna json pro site 
     
 
 if __name__ == "__main__":
