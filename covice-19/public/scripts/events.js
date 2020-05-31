@@ -1,7 +1,7 @@
 $(document).ready(() =>{
     var url = "/submit"; // miller poe a url
     $("#buttonSubmit").click(()=>{
-        $.post("/submit", {
+        $.ajax("/submit", {
             density:$("#idDensity").val(),
             isolation:$("#idIsolation").val(),
             air:$("#idAir").val(),

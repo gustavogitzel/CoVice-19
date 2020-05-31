@@ -90,9 +90,6 @@ input+.thumb.active .value {
 }
 
 #slide-out{
-    overflow:   scroll;
-}
-::-webkit-scrollbar {
-    width: 0px;
-    background: transparent; /* make scrollbar transparent */
-}
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+}::-webkit-scrollbar { width: 0 !important }
