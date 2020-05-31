@@ -10,12 +10,16 @@ prever = [0, 1, -1] #Indices do novo DF!!
 
 #Vars globais
 normalizer = -1
-df = -1
+df = pd.DataFrame()
 lm = -1
 
 def inialize():
     global df
+    global prever
+    global path
     global normalizer
+    global drop
+    global lm
 
     #Lendo
     df = pd.read_csv(path)
@@ -41,10 +45,13 @@ def inialize():
 
 
 def classify(dd, hb, pa, up):
+    global df
+    global lm
+
     df_test = normalizer.transform([[dd, hb, pa, up]])
     df_test = pd.DataFrame(df_test)
     
-    predict = lm0.predict(df_test)
+    predict = lm.predict(df_test)
     
     mudanca = 0
     menorDiferencaSegura = 9999
