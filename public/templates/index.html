@@ -7,9 +7,10 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static',filename='/images/favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='/css/style.css') }}" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <!-- Compiled and minified JavaScript -->
@@ -21,7 +22,8 @@
     <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/dataviz.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-    <script src="/scripts/chart.js"></script>
+    <script src="{{ url_for('static',filename='/scripts/chart.js') }}"></script>
+
     <title>CoVice-19</title>
 </head>
 
@@ -83,7 +85,7 @@
     <ul id="sidenavRight" class="sidenav">
         <li>
             <div class="user-view solutionSituation">
-                <a><img id="situationImage" class="imageLogo" src="images/test2.png" /></a> <!-- imagem de acordo com a gravidade da situação-->
+                <a><img id="situationImage" class="imageLogo" src="{{ url_for('static',filename='/images/logo.png') }}" /></a> <!-- imagem de acordo com a gravidade da situação-->
             </div>
         </li>
         <li>
@@ -92,7 +94,7 @@
         <li><a class="subheader">How to improve?</a></li>
         <div class="solutionCard card-panel white row">
             <div class="col s3">
-                <img class="solutionImage" src="images/logo.png">
+                <img class="solutionImage" src="{{ url_for('static',filename='/images/logo.png') }}">
             </div>
             <div class="col s9">
                 <span>Do that
@@ -101,7 +103,8 @@
           </div>
           <div class="solutionCard card-panel white row">
             <div class="col s3">
-                <a><img class="solutionImage" src="images/logo.png"></a>
+                <a><img class="solutionImage" src="{{ url_for('static',filename='/images/logo.png') }}"></a>
+
             </div>
             <div class="col s9">
                 <span>Dont do that
@@ -114,7 +117,8 @@
             class="material-icons">menu</i></a>
     <div id="chartdiv" class="container"></div>
 </body>
-<script src="scripts/index.js"></script>
-<script src="scripts/events.js"></script>
+
+<script src="{{ url_for('static',filename='/scripts/index.js') }}"></script>
+<script src="{{ url_for('static',filename='/scripts/events.js') }}"></script>
 
 </html>
