@@ -1,5 +1,12 @@
 var lastCountry = null;
 
+resetInfo = () => {
+    $("#idDensity").val(100);
+    $("#idIsolation").val(50);
+    $("#idAir").val(50);
+    $("#idICU").val(50);
+};
+
 am4core.ready(function () {
     // Themes begin
     am4core.useTheme(am4themes_animated);
@@ -53,7 +60,6 @@ am4core.ready(function () {
     // Set up click events
     worldPolygon.events.on("hit", function (ev) {
         ev.target.series.chart.zoomToMapObject(ev.target);
-
         ev.target.isActive = true;
 
         if (lastCountry != null) {
@@ -64,11 +70,14 @@ am4core.ready(function () {
             lastCountry = null;
             $("#nameCountry").text("No selected");
             chart.goHome();
+            resetInfo()
         } else {
             $("#sidenavRight").sidenav("open");
             lastCountry = ev.target;
             $("#nameCountry").text(ev.target.dataItem.dataContext.name);
         }
+
+        // get info from country
         
     });
 
