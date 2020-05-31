@@ -76,28 +76,32 @@ am4core.ready(function () {
         } else {
             $("#sidenavRight").sidenav("open");
             lastCountry = ev.target;
-            if(name.length > 22){
+            if (name.length > 22) {
                 $("#nameCountry").css('font-size', '11px');
-            }else{
+            } else {
                 $("#nameCountry").css('font-size', '14px');
             }
             $("#nameCountry").text(name);
+            $.ajaxSetup({
+                scriptCharset: "utf-8", //or "ISO-8859-1"
+                contentType: "application/json; charset=utf-8"
+            });
 
+            let link = "http://covice19sa.eba-53z3zu49.sa-east-1.elasticbeanstalk.com/country/";
+            let linkLocal = "http://localhost:5000/country/";
             $.ajax({
                 type: "GET",
-                url: "http://flask-env.eba-rvmf5vfe.sa-east-1.elasticbeanstalk.com/country/" + name,
+                url: link + name,
                 contentType: "application/json; charset=utf-8",
+                dataType: "json",
                 success: function (data) {
-                    console.log(data);
+                    alert("aleluia")
                 },
                 error: function (data) {
-                    alert("Error to get information. Try it later please!")
+                    
                 }
             });
         }
-
-        
-        
     });
 
     // Zoom control

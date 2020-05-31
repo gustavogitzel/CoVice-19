@@ -1,19 +1,18 @@
 from flask import Flask, redirect, url_for, render_template, flash, json, jsonify, request
 import pandas as pd
-from flask_cros import CORS
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
-CORS(app)
-cors = CORS(app, resources={
-    r"/*":{
-        "origins":"*"
-    }
-})
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 @app.route("/")
 def home():
     return "Teste"
 
+
 @app.route("/submit", methods=['POST'])
+@cross_origin()
 def submit():
     density = request.form['density']
     air = request.form['air']
@@ -24,6 +23,7 @@ def submit():
     return "teste submit" # retorna json pro site 
     
 @app.route('/country/<name>', methods=['GET'])
+@cross_origin()
 def country(name):
 	df = pd.read_csv('final.csv')
 	df.set_index('Name', inplace=True)
