@@ -89,8 +89,7 @@ input+.thumb.active .value {
     width: 10vw;
 }
 
-#slide-out{
-    overflow-y:unset !important;
-    overflow: -moz-scrollbars-none !important;
-    -ms-overflow-style: none !important;
-}::-webkit-scrollbar { width: 0 !important }
+
+#buttonSubmit{
+    color: white;
+}

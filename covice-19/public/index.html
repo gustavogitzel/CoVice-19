@@ -7,8 +7,8 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="css/style.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
     <!-- Compiled and minified CSS -->
@@ -22,7 +22,7 @@
     <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/dataviz.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-    <script src="/scripts/chart.js"></script>
+    <script src="scripts/chart.js"></script>
 
     <title>CoVice-19</title>
 </head>
@@ -45,7 +45,7 @@
             <div class="divider"></div>
         </li>
         <li><a class="subheader">Customize your selection!</a></li>
-        <form action="">
+        <form>
             <div class="formItem">
                 <label>Population ages 65 and above (% of total population) </label>
                 <p class="range-field">
@@ -67,7 +67,7 @@
             <div class="formItem">
                 <label>Isolation</label>
                 <p class="range-field">
-                    <input type="range"  id="idIsolation" min="0" max="100" />
+                    <input type="range" id="idIsolation" min="0" max="100" />
                 </p>
             </div>
             <div class="formItem">
@@ -92,30 +92,23 @@
                 <label class="formItem">Season</label>
             </div>
             <div class="formItem">
-                <button class="btn waves-effect waves-light red darken-1" id="buttonSubmit">Save
-                    <i class="material-icons right">send</i>
-                </button>
+                <input class="btn waves-effect waves-light red darken-1" type="button" id="buttonSubmit"
+                    value="Simulate">
             </div>
+            <li>
+                <a class="modal-trigger" href="#modalData">Database</a>
+            </li>
         </form>
     </ul>
     <ul id="sidenavRight" class="sidenav">
-        <li>
-            <div class="user-view solutionSituation">
-                <a><img id="situationImage" class="imageLogo" src="images/logo.png" /></a>
-                <!-- imagem de acordo com a gravidade da situação-->
-            </div>
-        </li>
-        <li>
-            <div class="divider"></div>
-        </li>
-        <li><a class="subheader">How to improve?</a></li>
+        <li><a class="subheader">Information</a></li>
         <div class="solutionCard card-panel white row">
             <div class="col s3">
                 <img class="solutionImage" src="images/logo.png">
             </div>
             <div class="col s9">
-                <span>Do that
-                </span>
+                <span><b>Number of cases</b></span><br>
+                <span id="cases"></span>
             </div>
         </div>
         <div class="solutionCard card-panel white row">
@@ -124,10 +117,32 @@
 
             </div>
             <div class="col s9">
-                <span>Dont do that
-                </span>
+                <span><b>Number of deaths</b></span><br>
+                <span id="deaths"></span>
             </div>
         </div>
+        <div class="solutionCard card-panel white row">
+            <div class="col s12s">
+                <span><b>The country is <span id="situation"></span> the global average of deaths per
+                        million.</b></span><br>
+                <span id="situationSentence"></span>
+            </div>
+        </div>
+        <div id="riskCountry">
+        <div class="divider"></div>
+        <li><a class="subheader">How to get better?</a></li>
+        <div class="solutionCard card-panel white row">
+            <div class="col s12s">
+                Please, be aware of your risks: <b><span id="suggestionText"></span></b><br>
+                To improve your condition, try to follow the social distancing measures staying at home.
+            </div>
+        </div>
+        <div class="solutionCard card-panel white row">
+            <div class="col s12s">
+                Try to simulate the better scenario with the menu on the left.
+            </div>
+        </div>
+    </div>
     </ul>
     <a id="buttonMenu" href="#" data-target="slide-out"
         class="btn-floating btn-large waves-effect waves-light red sidenav-trigger"><i
@@ -136,10 +151,34 @@
     <div id="modalError" class="modal">
         <div class="modal-content">
             <h4>Error to get information</h4>
-            <p>This country has no data yet. Please, try it later!</p>
+            <p id="errorMessage"></p>
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+    <div id="modalData" class="modal">
+        <div class="modal-content">
+            <h4>Database</h4>
+            <b>World Bank (Data)</b>
+            <ul>
+                <li>Hospital beds (per 1,000 people)</li>
+                <li>Population ages 65 and above (% of total population)</li>
+                <li>Population density (people per sq. km of land area)</li>
+                <li>Urban population (% of total population)</li>
+            </ul>
+            <b>Our World in Data</b>
+            <ul>
+                <li>Covid-19 total cases per million</li>
+            </ul>
+            <b>Johns Hopkins Whiting School and Engineering</b>
+            <ul>
+                <li>Covid-19 confirmed cases</li>
+                <li>Covid-19 confirmed deaths</li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
         </div>
     </div>
 </body>
