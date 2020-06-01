@@ -155,18 +155,18 @@ df_super.drop([len(df_super.index)-1], inplace=True)
 
 r = requests.get(urlCovidData)
 dict_json_cpm = r.json()
-dict_cpm = {"Code": [], "Cases_per_mil": []}
+dict_cpm = {"Code": [], "Deaths_per_mil": []}
 for key in dict_json_cpm.keys():
     cpm = dict_json_cpm[key][len(dict_json_cpm[key])-1]
     try:
-        cpm = cpm['total_cases_per_million']
+        cpm = cpm['total_deaths_per_million']
     except:
-        cpm = cpm['total_cases']/(cpm['population']/10**6)
+        cpm = cpm['total_deaths']/(cpm['population']/10**6)
     dict_cpm["Code"].append(key)
     if cpm > wldMean:
-        dict_cpm["Cases_per_mil"].append('Above')
+        dict_cpm["Deaths_per_mil"].append('Above')
     else:
-        dict_cpm["Cases_per_mil"].append('Below')
+        dict_cpm["Deaths_per_mil"].append('Below')
 df_cpm = pd.DataFrame.from_dict(dict_cpm)
 
 
@@ -174,7 +174,7 @@ df_cpm = pd.DataFrame.from_dict(dict_cpm)
 
 df_final = df_cc
 df_final['Deaths'] = df_de['Deaths']
-df_final['Cases_per_mil'] = df_cpm['Cases_per_mil']
+df_final['Deaths_per_mil'] = df_cpm['Deaths_per_mil']
 df_final = df_final.join(df_co.set_index('Name'), on='Name')
 df_final = df_final.join(df_super.set_index('Code'), on='Code')
 df_final.set_index('Name', inplace=True)
