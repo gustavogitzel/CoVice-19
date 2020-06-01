@@ -112,7 +112,6 @@ def submit():
 def country(name):
     df = pd.read_csv('final.csv')
     df.set_index('Name', inplace=True)
-    df.drop(df.columns[0], axis=1, inplace=True)
     return df.loc[name].to_json()
 
 
