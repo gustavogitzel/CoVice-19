@@ -33,8 +33,10 @@ get_situation = ()=>{
                 $("#suggestionText").text(wordKey + text);
                 if(situation == "below"){
                     $("#situationSentence").text("You are safe, but remember, always be careful!");
+                    $("#riskCountry").hide();
                 }else{
                     $("#situationSentence").text("You are at risk zone. Please, keep calm and stay home!");
+                    $("#riskCountry").show();
                 }
                 $("#sidenavRight").sidenav("open");
             },
