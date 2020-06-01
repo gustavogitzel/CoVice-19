@@ -65,6 +65,8 @@ am4core.ready(function () {
         ev.target.series.chart.zoomToMapObject(ev.target);
         ev.target.isActive = true;
         let name = ev.target.dataItem.dataContext.name;
+        if(name == "United States")
+            name = "United States of America"
 
         if (lastCountry != null) {
             lastCountry.isActive = false;
