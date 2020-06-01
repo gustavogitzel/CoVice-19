@@ -174,9 +174,9 @@ df_cpm = pd.DataFrame.from_dict(dict_cpm)
 
 df_final = df_cc
 df_final['Deaths'] = df_de['Deaths']
-df_final['Deaths_per_mil'] = df_cpm['Deaths_per_mil']
 df_final = df_final.join(df_co.set_index('Name'), on='Name')
 df_final = df_final.join(df_super.set_index('Code'), on='Code')
+df_final = df_final.join(df_cpm.set_index('Code'), on='Code')
 df_final.set_index('Name', inplace=True)
 
 
