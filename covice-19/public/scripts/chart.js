@@ -90,8 +90,7 @@ am4core.ready(function () {
                 contentType: "application/json; charset=utf-8"
             });
 
-            let link = "http://covice19sab.eba-53z3zu49.sa-east-1.elasticbeanstalk.com/country/";
-            let linkLocal = "http://localhost:5000/country/";
+            let link = "https://egg-wave.herokuapp.com/country/"
             try {
                 $.ajax({
                     type: "GET",
@@ -99,19 +98,22 @@ am4core.ready(function () {
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (data) {
-                        console.log(data);
                         $("#idDensity").val(Math.round(data['Demographic_Density']));
                         $("#idICU").val(Math.round(data['Hospital beds (per 1,000 people)']));
                         $("#idOld").val(Math.round(data['Population ages 65 and above (% of total population)']));
                         $("#idUrban").val(Math.round(data['Urban population (% of total population)']));
+                        $("#cases").text(data['Cases']);
+                        $("#deaths").text(data['Deaths']);
+                        get_situation();
                     },
                     error: function (data) {
+                        $("#errorMessage").text("Error to customize information. Please, try it later!")
                         $("#modalError").modal('open');
                         resetInfo()
                     }
                 });
             } catch (error) {
-                console.log("Error on server or it's Missing " + name + " data");
+                console.log("Error on server or it's missing " + name + " data");
             }
 
         }
