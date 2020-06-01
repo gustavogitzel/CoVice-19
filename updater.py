@@ -12,7 +12,7 @@ urlCountries = 'https://restcountries.eu/rest/v2/all'
 urlCovidData = 'https://covid.ourworldindata.org/data/owid-covid-data.json'
 super_file = 'super_file.csv'
 #urlTemp = 'https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_3.23/crucy.1506241137.v3.23/countries/tmp/crucy.v3.23.1901.2014.{}.tmp.per'
-wldMean = 200
+wldMean = 100
 
 
 df_cc = pd.read_csv(urlConfirmed)
