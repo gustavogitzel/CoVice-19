@@ -9,12 +9,12 @@ application.config['CORS_HEADERS'] = 'Content-Type'
 from sklearn import preprocessing
 from sklearn.linear_model import LinearRegression
 
-#Vars de controle
+#Controll vars
 path = 'final.csv'
 drop = [0, 1, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 23, 24, 25, 26, 27, 28, 30, 31]
-prever = [0, 1, -1] #Indices do novo DF!!
+prever = [0, 1, -1] #Indexes from de new DF!!!
 
-#Vars globais
+#Global vars
 normalizer = -1
 df = pd.DataFrame()
 lm = -1
@@ -27,10 +27,10 @@ def inialize():
     global drop
     global lm
 
-    #Lendo
+    #Reading file
     df = pd.read_csv(path)
 
-    #Arrumando colunas
+    #Correcting the columns
     df.drop(df.columns[drop], axis=1, inplace=True)
 
     df_cases = df.iloc[:, 2]
@@ -38,14 +38,14 @@ def inialize():
 
     cs = df.columns
 
-    #Normalizando
+    #Normalizing the data
     normalizer = preprocessing.Normalizer().fit(df)
     df = normalizer.transform(df)
     df = pd.DataFrame(df, columns = cs)
 
     df['Cases_per_mil'] = df_cases
 
-    #Treinando
+    #Training
     lm = LinearRegression()
     lm.fit(df.iloc[2:, 2:-1], df.iloc[2:, 1])
 
@@ -105,7 +105,7 @@ def submit():
     elder = request.form['elder']
     population = request.form['population']
 
-    return classify(density, icu, elder, population).to_json() # retorna json pro site 
+    return classify(density, icu, elder, population).to_json() # returns json to the website 
     
 @application.route('/country/<name>', methods=['GET'])
 @cross_origin()
